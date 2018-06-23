@@ -1,0 +1,10 @@
+name: networq:requirement
+description: Requirement types
+license: MIT
+
+widgets:
+
+  requirementsTab:
+    type: networq:requirement:list
+    hook: tabs
+    label: Requirements

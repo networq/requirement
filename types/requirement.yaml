@@ -1,0 +1,7 @@
+name: requirement
+labelPlural: Requirements
+labelSingular: Requirement
+
+fields:
+  instruction:
+    type: string

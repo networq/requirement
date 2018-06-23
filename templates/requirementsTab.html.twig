@@ -1,0 +1,32 @@
+{% if node['networq:planning:action']['list'] is defined  %}
+<div class="alert alert-info">
+  This action is part of a
+    <b>{{ node['networq:planning:action']['list']['networq:core:node']['name'] }}</b>
+    {{ node['networq:planning:action']['list']|nodeButton|raw }}.
+    
+    Additional action-list specific requirements may apply.
+  
+</div>
+{% endif %}
+<ul class="list-group">
+  {% for requirement in node['networq:requirement:list']['requirements'] %}
+
+    <li class="list-group-item">
+        <h3>
+          <a href="{{ requirement|nodePath }}">
+          {{ requirement['networq:core:node']['name'] }}: {{ requirement['networq:core:node']['description'] }}
+          </a>
+        </h3>
+        <p>{{ requirement['networq:requirement:requirement']['instruction'] }}</p>
+        {% if requirement['networq:core:node']['url'] %}
+        <a target="_blank" href="{{ requirement['networq:core:node']['url'] }}">{{ requirement['networq:core:node']['url'] }}</a><br />
+        {% endif %}
+
+        {% if requirement['networq:requirement:list'] is defined %}
+          {% set node = requirement %}
+          {% include '@networq:requirement/requirementsTab.html.twig' %}
+        {% endif %}
+
+    </li>
+  {% endfor %}
+</ul>

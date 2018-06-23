@@ -1,0 +1,7 @@
+name: requirement-list
+
+icon: list
+
+fields:
+  requirements:
+    type: networq:requirement:requirement-list[]
