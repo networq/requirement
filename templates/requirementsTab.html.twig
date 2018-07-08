@@ -17,7 +17,9 @@
           {{ requirement['networq:core:node']['name'] }}: {{ requirement['networq:core:node']['description'] }}
           </a>
         </h3>
+        {% if requirement['networq:requirement:requirement'] is defined %}
         <p>{{ requirement['networq:requirement:requirement']['instruction'] }}</p>
+        {% endif %}
         {% if requirement['networq:core:node']['url'] %}
         <a target="_blank" href="{{ requirement['networq:core:node']['url'] }}">{{ requirement['networq:core:node']['url'] }}</a><br />
         {% endif %}
